@@ -88,9 +88,9 @@ else if ($#argv == 5) then
     end
 
     #merge all the killed lists into one file
-    touch killed_$tag\_$njob.list
+    touch killed_$tag\_$njobs\_$njob.list
     foreach list ($killedlist)
-        cat $listdir/$list >> killed_$tag\_$njob.list
+        cat $listdir/$list >> killed_$tag\_$njobs\_$njob.list
     end
 endif
 else
