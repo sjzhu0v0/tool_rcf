@@ -5,8 +5,8 @@ Notification = never
 GetEnv       = true
 
 Initialdir   = ./
-Executable   = ./merge.csh
-arguments = results.list /star/u/szhu/pwg/pAu200_NetProtonFluctuation/StarAna/QA/RESULTS 20 $(item) QA_Results/qa_results
+Executable   = ./ListGenetate.csh
+arguments = /star/u/szhu/pwg/pAu200_NetProtonFluctuation/StarAna/QA/RESULTS /star/u/szhu/pwg/pAu200_NetProtonFluctuation/StarAna/QA/list/ 6C1FAC49FA 20 $(item)
 
 Log          = ./LogDir/run$(item).log
 Output       = ./LogDir/run$(item).out
