@@ -1,0 +1,14 @@
+Universe     = vanilla
+Priority     = 20
+
+Notification = never
+GetEnv       = true
+
+Initialdir   = ./
+Executable   = ./merge.csh
+arguments = results.list /star/u/szhu/pwg/pAu200_NetProtonFluctuation/StarAna/QA/RESULTS 20 $(item) QA_Results/qa_results
+
+Log          = ./LogDir/run$(item).log
+Output       = ./LogDir/run$(item).out
+Error        = ./LogDir/run$(item).err
+Queue item from seq 1 20 |
