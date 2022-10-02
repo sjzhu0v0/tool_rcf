@@ -79,8 +79,15 @@ else if ($#argv == 5) then
             set killedlist = "$killedlist $list"
         endif
     end
+    #echo all the killed lists line by line
+    foreach list ($killedlist)
+        echo $list
+    end
+
+    #merge all the killed lists into one file
+    cat $killedlist > Killed_$tag\_job$njob.list
 endif
 else
-    echo "Wrong number of input arguments"
+    echo "The number of input is wrong. The number of input should be 3 or 5."
     exit 1
 endif
