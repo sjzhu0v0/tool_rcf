@@ -52,11 +52,11 @@ else if ($#argv == 5) then
     set killedlist = ""
 
     #calculate the range of the lists that be processed by this shell
-    nlists = `ls $listdir | grep $tag | wc -w`
-    nlistsperjob = `echo "scale=0; $nlists/$njobs" | bc`
-    nlistsleft = `echo "scale=0; $nlists%$njobs" | bc`
-    nlistsstart = `echo "scale=0; ($njob-1)*$nlistsperjob+1" | bc`
-    nlistsend = `echo "scale=0; $njob*$nlistsperjob" | bc`
+    set nlists = `ls $listdir | grep $tag | wc -w`
+    set nlistsperjob = `echo "scale=0; $nlists/$njobs" | bc`
+    set nlistsleft = `echo "scale=0; $nlists%$njobs" | bc`
+    set nlistsstart = `echo "scale=0; ($njob-1)*$nlistsperjob+1" | bc`
+    set nlistsend = `echo "scale=0; $njob*$nlistsperjob" | bc`
     if ($njob == $njobs) then
         set nlistsend = `echo "scale=0; $nlistsend+$nlistsleft" | bc`
     endif
