@@ -82,3 +82,4 @@ else if ($#argv == 5) then
 else
     echo "Wrong number of input arguments"
     exit 1
+endif
