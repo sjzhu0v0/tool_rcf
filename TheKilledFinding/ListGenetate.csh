@@ -39,6 +39,7 @@ foreach list ($killedlist)
 end
 
 #merge all the killed lists into one file
+touch killed.list
 foreach list ($killedlist)
     cat $listdir/$list >> $listdir/killed.list
 end
@@ -87,8 +88,9 @@ else if ($#argv == 5) then
     end
 
     #merge all the killed lists into one file
+    touch killed_$njob.list
     foreach list ($killedlist)
-        cat $listdir/$list >> $listdir/killed.list
+        cat $listdir/$list >> $listdir/killed_$njob.list
     end
 endif
 else
