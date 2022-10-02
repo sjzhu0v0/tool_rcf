@@ -14,7 +14,8 @@ set killedlist = ""
 
 #generate the name of the output root file from the tagged list name from the list directory
 foreach list (`ls $listdir | grep $tag`)
-    set rootfile = `echo $list | sed 's/.list/.root/g;s/shed/result_/g'`
+    set rootfile = `echo $list | sed 's/.list/.root/g'`
+    set rootfile = `echo $rootfile | sed 's/sched/result_/g'`
     #check if the root file is good 
     IsRootFileGood $rootfiledir/$rootfile
     #if the root file is bad, add the list name to the killed list
