@@ -57,12 +57,13 @@ else if ($#argv == 5) then
     set nlistsleft = `echo "scale=0; $nlists%$njobs" | bc`
     set nlistsstart = `echo "scale=0; ($njob-1)*$nlistsperjob+1" | bc`
     set nlistsend = `echo "scale=0; $njob*$nlistsperjob" | bc`
+    set nlisttemp = `echo "scale=0; $nlistsend-$nlistsstart+1" | bc`
     if ($njob == $njobs) then
         set nlistsend = `echo "scale=0; $nlistsend+$nlistsleft" | bc`
     endif
 
     #generate the name of the output root file from the tagged list name from the list directory
-    foreach list (`ls $listdir | grep $tag | head -n $nlistsend | tail -n `echo "scale=0; $nlistsend-$nlistsstart+1" | bc``)
+    foreach list (`ls $listdir | grep $tag | head -n $nlistsend | tail -n $nlisttemp`)
         set rootfile = `echo $list | sed 's/.list/.root/g'`
         set rootfile = `echo $rootfile | sed 's/sched/result_/g'`
         #check if the root file exists in the rootfile directory. if it does not, add it to the killed list. If so, check if the root file is good.
