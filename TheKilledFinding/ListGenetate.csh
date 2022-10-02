@@ -39,7 +39,9 @@ foreach list ($killedlist)
 end
 
 #merge all the killed lists into one file
-cat $killedlist > Killed_$tag.list
+foreach list ($killedlist)
+    cat $listdir/$list >> $listdir/killed.list
+end
 
 else if ($#argv == 5) then
     #the fourth input: the number of jobs
@@ -85,7 +87,9 @@ else if ($#argv == 5) then
     end
 
     #merge all the killed lists into one file
-    cat $killedlist > Killed_$tag\_job$njob.list
+    foreach list ($killedlist)
+        cat $listdir/$list >> $listdir/killed.list
+    end
 endif
 else
     echo "The number of input is wrong. The number of input should be 3 or 5."
