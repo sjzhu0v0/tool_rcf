@@ -1,0 +1,15 @@
+Universe     = vanilla
+Priority     =
+
+Notification = never
+GetEnv       = true
+
+Initialdir   = ./
+Executable   = ./merge.csh
+arguments = file.list inputdir n_parts n_part outputfilename
+
+Log          = ./LogDir/run$(item).log
+Output       = ./LogDir/run$(item).out
+Error        = ./LogDir/run$(item).err
+Queue item from seq 1 5 |
+
