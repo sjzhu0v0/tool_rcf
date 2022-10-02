@@ -25,7 +25,9 @@ foreach list (`ls $listdir | grep $tag`)
             set killedlist = "$killedlist $list"
         endif
     else
+        echo "File $rootfile does not exist in the directory $rootfiledir"
         set killedlist = "$killedlist $list"
+    endif
 end
 
 #echo all the killed lists line by line
