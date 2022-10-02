@@ -79,6 +79,7 @@ else if ($#argv == 5) then
             set killedlist = "$killedlist $list"
         endif
     end
+endif
 else
     echo "Wrong number of input arguments"
     exit 1
